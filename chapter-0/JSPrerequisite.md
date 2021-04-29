@@ -2,7 +2,7 @@
 
 1. **let and const**
 
-
+``
 
     const name = "Tony Stark" // define a value as const if you don't want it to change
 
@@ -11,7 +11,7 @@
     // Both let and const are block scoped
 
 
-
+``
 
 2. **Template Literals**
 
@@ -163,6 +163,7 @@
 10. **Array methods**
 
     - map
+
         ``
 
             const members = ["Tony Stark", "Steve Rogers", "Bruce Banner", "Natasha Romanoff", "Clint Barton", "Thor"]
@@ -177,10 +178,12 @@
 
             console.log(memberWithTeam)
 
-    ``
+        ``
 
     - filter
+
         ``
+
             const resultMembers =  memberWithTeam.filter((member) => {
                 if(member.id > 3)
                     return true
@@ -189,7 +192,7 @@
 
             console.log(resultMembers)
 	    
-    ``
+        ``
 
     - reduce
     - find
