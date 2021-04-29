@@ -2,7 +2,7 @@
 
 1. **let and const**
 
-``
+
 
     const name = "Tony Stark" // define a value as const if you don't want it to change
 
@@ -10,7 +10,7 @@
 
     // Both let and const are block scoped
 
-``
+
 
 
 2. **Template Literals**
