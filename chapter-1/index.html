@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.14.4/babel.min.js"></script> -->
+    <title>React Chapter 1</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const rootDiv = document.getElementById("root");
+        const childEle = document.createElement("h3")
+        childEle.classList.add("container");
+        childEle.textContent = "Avengers Assemble"
+        rootDiv.appendChild(childEle)
+
+        // const childReactEle = React.createElement('h3', {className: "container"}, "Avenger Assemble React")
+        // ReactDOM.render(childReactEle, document.getElementById('root'))
+
+        // const childJSXEle = <h3 className="container">Avengers Assemble JSX</h3>
+        // ReactDOM.render(childJSXEle, document.getElementById('root'))
+    </script>
+</body>
+</html>
