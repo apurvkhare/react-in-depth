@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.14.6/babel.min.js"></script>
+    <title>React Workshop Level 0</title>
+</head>
+<body>
+<div id="root"></div>
+    <script type="text/babel">
+        const rootDiv = document.getElementById('root')
+        // const h3Ele = document.createElement('h3')
+        // h3Ele.classList.add('container')
+        // h3Ele.textContent = "Avengers Assemble"
+        // rootDiv.appendChild(h3Ele)
+
+        // const reacth3Ele = React.createElement('h3', {className: 'conatiner'}, 'Avengers Assemble third arg')
+
+        const jsxH3Ele = <h3 className="conatiner">Avengers Assemble JSX</h3>
+
+    class UserComponent extends React.Component {
+        constructor(props){
+            super(props);
+            this.state={
+            name: 'Guest',
+            age: 20
+        }
+    }
+
+    componentDidMount(){
+        console.log("ComponentDidMount called")
+    }
+
+    componentDidUpdate(){
+        console.log("ComponentDidUpdate called")
+    }
+
+    componentWillUnmount(){
+        console.log("ComponentWillUnmount called")
+    }
+
+    render(){
+        return <div>
+            <h1> I am a class component </h1>
+            <h3> User Name : {this.state.name} </h3>
+            <h3> User Age : {this.state.age} </h3>
+            <button 
+            onClick={() => this.setState({...this.state, name: 'Apurv', age: 25})}
+            >
+            update user
+            </button>
+        </div>
+    }
+}
+
+    const stateInitializer = () => console.log('use State called')
+
+    function CustomerComponent (){
+        const [customer, setCustomer] = React.useState("Guest")
+        const [age, setAge] = React.useState(20)
+        const [date, setDate] = React.useState(new Date())
+        const [state, setState] = React.useState(stateInitializer)
+
+        React.useEffect(() => {
+            console.log("useEffect was called")
+            // return () => console.log('useEffect on unmount')
+        },[]) 
+
+        const handleClick = () => {
+            setCustomer('Apurv')
+            // setAge('25')
+        }
+
+        console.log("Customer Component called");
+
+        return <div>
+            <h1> I am a Functional component </h1>
+            <h3> Customer Name : {customer} </h3>
+            <h3> Customer Age : {age} </h3>
+            <h3>Date is : {date.getDate()}</h3>
+            <button 
+            onClick={handleClick}
+            >
+            update Customer
+            </button>
+            </div>
+    }
+
+    const ParentComponent = () => {
+
+        const [classComp, setClassComp] = React.useState(false)
+        const [funcComp, setFuncComp] = React.useState(false)
+
+        return<div>
+                <h1>I am the Parent Component</h1>
+                <button onClick={() => setClassComp(classComp => !classComp)}>toggle class comp</button>
+                <button onClick={() => setFuncComp(funcComp => !funcComp)}>toggle func comp</button>
+                {classComp && <UserComponent/>}
+                {funcComp && <CustomerComponent/>}
+            </div>
+    }
+        ReactDOM.render(<ParentComponent />, rootDiv)
+    </script>
+</body>
+</html>
